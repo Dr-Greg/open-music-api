@@ -1,0 +1,36 @@
+{
+	"name": "open-music-api",
+	"version": "1.0.0",
+	"description": "A REST api designed to distribute open source music",
+	"main": "app.js",
+	"scripts": {
+		"start": "node ./bin/www",
+		"dev": "nodemon ./bin/www",
+		"test": "test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Dr-Greg/open-music-api.git"
+	},
+	"author": "Dr-Greg <grigor.mouradyan@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Dr-Greg/open-music-api/issues"
+	},
+	"homepage": "https://github.com/Dr-Greg/open-music-api#readme",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.19.0",
+		"connect": "^3.7.0",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"http-status-codes": "^1.4.0",
+		"joigoose": "^6.2.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.8.11"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.2"
+	}
+}

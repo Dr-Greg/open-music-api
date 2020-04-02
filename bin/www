@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+const http = require('http');
+
+const app = require('../src/app');
+const CONFIG = require('../src/config');
+const { configSchema } = require('../src/schema');
+
+const { error } = configSchema.validate(CONFIG, { abortEarly: false });
+
+if (error) {
+  console.error(
+    { CONFIG, error },
+    'Invalid configuration. Unable to start service. Exiting.',
+  );
+  process.exit(1);
+}
+
+http
+  .createServer(app)
+  .on('error', err => {
+    console.error({ err }, 'The HTTP server threw an error. Exiting.');
+    process.exit(1);
+  })
+  .listen(CONFIG.PORT, CONFIG.HOST, () => console.log('Server running.'));

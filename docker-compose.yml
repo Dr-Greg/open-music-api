@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  api:
+    container_name: music_api
+    build:
+      context: .
+    networks:
+      - music
+    ports:
+      - '3000:3000'
+    env_file: .env
+  mongo:
+    container_name: music_mongo
+    image: mongo
+    volumes:
+      - './mongodb/data:/data/db'
+    networks:
+      - music
+    ports:
+      - '27017:27017'
+networks:
+  music:
+    name: music
